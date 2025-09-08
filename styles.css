@@ -292,6 +292,7 @@ body {
     box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
 }
 
+
 .results {
     display: none;
 }
@@ -385,40 +386,27 @@ body {
     position: relative;
 }
 
-.dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #333;
-    color: white;
-    padding: 15px;
+.expanded-content {
+    background: #f8f9fa;
+    color: #333;
+    padding: 0;
     border-radius: 8px;
     font-size: 0.9rem;
     line-height: 1.4;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     text-align: left;
-    margin-top: 5px;
+    margin-top: 0;
+    border: 1px solid #dee2e6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
 }
 
-.dropdown::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 20px;
-    border: 5px solid transparent;
-    border-bottom-color: #333;
-}
-
-.gift-item.active .dropdown {
+.gift-item.active .expanded-content {
+    max-height: 500px;
+    padding: 15px;
+    margin-top: 10px;
     opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .gift-item.active {
@@ -426,9 +414,9 @@ body {
     border: 2px solid #667eea;
 }
 
-/* Mobile dropdown adjustments */
+/* Mobile expanded content adjustments */
 @media (max-width: 768px) {
-    .dropdown {
+    .expanded-content {
         font-size: 0.8rem;
         padding: 12px;
     }
