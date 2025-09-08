@@ -177,7 +177,7 @@ body {
     padding: 25px;
     border-radius: 15px;
     border-left: 4px solid #667eea;
-    height: 120px;
+    height: 180px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -435,7 +435,7 @@ body {
     .question {
         font-size: 1rem;
         padding: 15px;
-        height: 80px;
+        height: 160px;
         line-height: 1.4;
         overflow-y: auto;
         box-sizing: border-box;
@@ -465,7 +465,7 @@ body {
     .question {
         font-size: 1.1rem;
         padding: 20px;
-        height: 100px;
+        height: 200px;
         overflow-y: auto;
         box-sizing: border-box;
         align-items: flex-start;
