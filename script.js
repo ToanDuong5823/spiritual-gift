@@ -189,6 +189,7 @@ function submitSurvey() {
     showResults();
 }
 
+
 function showResults() {
     surveySection.classList.add('hidden');
     resultsSection.classList.add('show');
@@ -221,7 +222,9 @@ function displayResults(giftScores) {
             <div>
                 <div class="gift-name">
                     ${index + 1}. ${gift.name}
-                    <div class="dropdown">${definition}</div>
+                </div>
+                <div class="expanded-content">
+                    ${definition}
                 </div>
             </div>
             <div style="display: flex; align-items: center;">
@@ -232,18 +235,18 @@ function displayResults(giftScores) {
         
         giftsRanking.appendChild(giftItem);
         
-        // Add click event listener for dropdown
+        // Add click event listener for expanded content
         giftItem.addEventListener('click', (e) => {
             e.stopPropagation();
             
-            // Close all other dropdowns
+            // Close all other expanded items
             document.querySelectorAll('.gift-item').forEach(item => {
                 if (item !== giftItem) {
                     item.classList.remove('active');
                 }
             });
             
-            // Toggle current dropdown
+            // Toggle current expanded content
             giftItem.classList.toggle('active');
         });
     });
@@ -273,7 +276,7 @@ prevBtn.addEventListener('click', prevQuestion);
 submitBtn.addEventListener('click', submitSurvey);
 restartBtn.addEventListener('click', restartSurvey);
 
-// Close dropdowns when clicking outside
+// Close expanded content when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.gift-item')) {
         document.querySelectorAll('.gift-item').forEach(item => {
