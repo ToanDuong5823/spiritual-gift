@@ -179,7 +179,7 @@ body {
     border-left: 4px solid #667eea;
     height: 120px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     overflow-y: auto;
     box-sizing: border-box;
@@ -439,6 +439,7 @@ body {
         line-height: 1.4;
         overflow-y: auto;
         box-sizing: border-box;
+        align-items: flex-start;
     }
     
     .survey-container {
@@ -467,6 +468,7 @@ body {
         height: 100px;
         overflow-y: auto;
         box-sizing: border-box;
+        align-items: flex-start;
     }
 
     .rating-options {
