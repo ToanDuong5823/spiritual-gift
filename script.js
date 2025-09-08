@@ -1,5 +1,6 @@
 let surveyData = [];
 let spiritualGifts = [];
+let giftDefinitions = {};
 let currentQuestion = 0;
 let userRatings = [];
 let surveySubmitted = false;
@@ -26,6 +27,7 @@ async function loadSurveyData() {
         
         surveyData = data.questions;
         spiritualGifts = data.spiritualGifts;
+        giftDefinitions = data.giftDefinitions;
         userRatings = new Array(surveyData.length).fill(null);
         
         initializeSurvey();
@@ -213,9 +215,14 @@ function displayResults(giftScores) {
             giftItem.classList.add('low-gift');
         }
         
+        const definition = giftDefinitions[gift.name] || 'Định nghĩa không có sẵn';
+        
         giftItem.innerHTML = `
             <div>
-                <div class="gift-name">${index + 1}. ${gift.name}</div>
+                <div class="gift-name">
+                    ${index + 1}. ${gift.name}
+                    <div class="tooltip">${definition}</div>
+                </div>
             </div>
             <div style="display: flex; align-items: center;">
                 <span class="gift-score ${gift.score >= 12 ? 'high-score' : gift.score >= 6 ? 'medium-score' : 'low-score'}">${gift.score}/15</span>
