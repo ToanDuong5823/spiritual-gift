@@ -221,7 +221,7 @@ function displayResults(giftScores) {
             <div>
                 <div class="gift-name">
                     ${index + 1}. ${gift.name}
-                    <div class="tooltip">${definition}</div>
+                    <div class="dropdown">${definition}</div>
                 </div>
             </div>
             <div style="display: flex; align-items: center;">
@@ -231,6 +231,21 @@ function displayResults(giftScores) {
         `;
         
         giftsRanking.appendChild(giftItem);
+        
+        // Add click event listener for dropdown
+        giftItem.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.gift-item').forEach(item => {
+                if (item !== giftItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            giftItem.classList.toggle('active');
+        });
     });
 }
 
@@ -257,6 +272,15 @@ nextBtn.addEventListener('click', nextQuestion);
 prevBtn.addEventListener('click', prevQuestion);
 submitBtn.addEventListener('click', submitSurvey);
 restartBtn.addEventListener('click', restartSurvey);
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.gift-item')) {
+        document.querySelectorAll('.gift-item').forEach(item => {
+            item.classList.remove('active');
+        });
+    }
+});
 
 // Initialize survey when page loads
 document.addEventListener('DOMContentLoaded', loadSurveyData);
