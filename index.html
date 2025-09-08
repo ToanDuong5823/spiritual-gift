@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khảo Sát Ân Tứ Thiêng Liêng</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="survey-container">
+        <div class="survey-header">
+            <h1 class="survey-title">Khảo Sát Ân Tứ Thiêng Liêng</h1>
+            <p class="survey-subtitle">Đánh giá những ân tứ thiêng liêng của bạn</p>
+            <div class="instructions">
+                <p>Nói chính xác về những nhận định dưới đây rồi đánh dấu vào bảng trả lời đính kèm, theo chỉ dẫn sau:</p>
+                <ul>
+                    <li><strong>3:</strong> Nhận định rất đúng với bạn (thường xuyên, luôn luôn)</li>
+                    <li><strong>2:</strong> Nhận định khá đúng với bạn (thỉnh thoảng, 50-50)</li>
+                    <li><strong>1:</strong> Nhận định hơi đúng với bạn (hiếm khi)</li>
+                    <li><strong>0:</strong> Nhận định không đúng với bạn (chưa bao giờ, không bao giờ)</li>
+                </ul>
+                <p><strong>Chú ý:</strong> Đừng dựa trên những gì bạn nghĩ là NÊN như thế hoặc HY VỌNG bạn sẽ được như thế trong tương lai. Hãy thành thật với chính mình và đánh giá dựa trên kinh nghiệm bản thân của bạn.</p>
+            </div>
+        </div>
+
+        <div id="survey-section">
+            <div class="question-navigation" id="question-nav">
+                <!-- Question navigation buttons will be generated here -->
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            
+            <div class="question-counter" id="question-counter">
+                Câu hỏi 1 của 125
+            </div>
+            
+            <div class="question" id="question">
+                <!-- Question will be loaded here -->
+            </div>
+            
+            <div class="rating-options" id="rating-options">
+                <div class="rating-option" data-rating="3">
+                    <div class="rating-number rating-excellent">3</div>
+                    <div class="rating-label">Rất đúng</div>
+                </div>
+                <div class="rating-option" data-rating="2">
+                    <div class="rating-number rating-good">2</div>
+                    <div class="rating-label">Khá đúng</div>
+                </div>
+                <div class="rating-option" data-rating="1">
+                    <div class="rating-number rating-fair">1</div>
+                    <div class="rating-label">Hơi đúng</div>
+                </div>
+                <div class="rating-option" data-rating="0">
+                    <div class="rating-number rating-poor">0</div>
+                    <div class="rating-label">Không đúng</div>
+                </div>
+            </div>
+            
+            <div class="navigation-controls">
+                <button class="btn btn-secondary" id="prev-btn" disabled>← Câu trước</button>
+                <div>
+                    <button class="btn btn-secondary" id="next-btn" disabled>Câu sau →</button>
+                    <button class="btn btn-success" id="submit-btn" style="display: none;">Hoàn thành khảo sát</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-section" class="results">
+            <h2>Kết quả khảo sát!</h2>
+            <div class="results-summary" id="results-summary">
+                <h3>Các Ân Tứ Thiêng Liêng Của Bạn (Từ cao xuống thấp):</h3>
+                <div id="gifts-ranking">
+                    <!-- Results will be populated here -->
+                </div>
+            </div>
+            
+            <button class="btn" id="restart-btn">Làm lại khảo sát</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
