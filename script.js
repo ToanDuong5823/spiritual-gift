@@ -437,10 +437,6 @@ function displayHistory() {
 }
 
 function viewHistoryItem(historyItem) {
-    // Temporarily store current results
-    const currentGiftScores = calculateGiftScores();
-    const currentRatings = [...userRatings];
-    
     // Load history item data
     userRatings = [...historyItem.userRatings];
     const giftScores = historyItem.giftScores;
@@ -449,19 +445,26 @@ function viewHistoryItem(historyItem) {
     displayResults(giftScores);
     hideHistory();
     
-    // Add a back button to restore original results
+    // Add a back button to return to history list
     const backBtn = document.createElement('button');
     backBtn.className = 'btn btn-secondary';
-    backBtn.textContent = '← Quay lại kết quả hiện tại';
+    backBtn.textContent = '← Quay lại danh sách lịch sử';
     backBtn.style.marginTop = '20px';
     
     backBtn.addEventListener('click', () => {
-        userRatings = currentRatings;
-        displayResults(currentGiftScores);
+        showHistory();
         backBtn.remove();
     });
     
     const resultsActions = document.querySelector('.results-actions');
+    // Hide the "view history" button while viewing an old history result
+    if (viewHistoryBtn) {
+        viewHistoryBtn.style.display = 'none';
+        // Restore it when navigating back to the history list
+        backBtn.addEventListener('click', () => {
+            viewHistoryBtn.style.display = '';
+        });
+    }
     resultsActions.appendChild(backBtn);
 }
 
