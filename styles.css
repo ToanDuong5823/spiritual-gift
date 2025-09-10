@@ -282,6 +282,14 @@ body {
     text-align: center;
 }
 
+.rating-option.selected .rating-label {
+    color: #5a452e !important;
+}
+
+.dark-mode .rating-option.selected .rating-label {
+    color: white !important;
+}
+
 .rating-excellent { color: #28a745; }
 .rating-good { color: #007bff; }
 .rating-fair { color: #ffc107; }
@@ -291,7 +299,14 @@ body {
 .rating-option.selected .rating-good,
 .rating-option.selected .rating-fair,
 .rating-option.selected .rating-poor {
-    color: white;
+    color: #5a452e !important;
+}
+
+.dark-mode .rating-option.selected .rating-excellent,
+.dark-mode .rating-option.selected .rating-good,
+.dark-mode .rating-option.selected .rating-fair,
+.dark-mode .rating-option.selected .rating-poor {
+    color: white !important;
 }
 
 .navigation-controls {
