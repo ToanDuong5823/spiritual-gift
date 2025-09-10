@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=1WszHPAMKB9d&format=png&color=000000">
     <title>Khảo Sát Ân Tứ Thiêng Liêng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" title="Switch Theme">
+        <span class="theme-icon moon-icon">🌙</span>
+        <span class="theme-icon sun-icon">☀️</span>
+    </button>
+
     <div class="survey-container">
         <div class="survey-header">
             <h1 class="survey-title">Khảo Sát Ân Tứ Thiêng Liêng</h1>
@@ -62,6 +70,7 @@
             
             <div class="navigation-controls">
                 <button class="btn btn-secondary" id="prev-btn" disabled>← Câu trước</button>
+                <button class="btn btn-secondary" id="view-history-main-btn">📊 Xem lịch sử</button>
                 <div>
                     <button class="btn btn-secondary" id="next-btn" disabled>Câu sau →</button>
                     <button class="btn btn-success" id="submit-btn" style="display: none;">Hoàn thành khảo sát</button>
@@ -71,6 +80,9 @@
 
         <div id="results-section" class="results">
             <h2>Kết quả khảo sát!</h2>
+            <div class="auto-save-notice">
+                <p>✓ Kết quả đã được tự động lưu vào lịch sử</p>
+            </div>
             <div class="results-summary" id="results-summary">
                 <h3>Các Ân Tứ Thiêng Liêng Của Bạn (Từ cao xuống thấp):</h3>
                 <div id="gifts-ranking">
@@ -78,7 +90,21 @@
                 </div>
             </div>
             
-            <button class="btn" id="restart-btn">Làm lại khảo sát</button>
+            <div class="results-actions">
+                <button class="btn" id="restart-btn">Làm lại khảo sát</button>
+                <button class="btn btn-secondary" id="view-history-btn">Xem lịch sử</button>
+            </div>
+        </div>
+
+        <div id="history-section" class="history">
+            <h2>Lịch sử khảo sát</h2>
+            <div class="history-controls">
+                <button class="btn btn-secondary" id="back-to-results-btn">← Quay lại kết quả</button>
+                <button class="btn btn-danger" id="clear-history-btn">Xóa lịch sử</button>
+            </div>
+            <div class="history-list" id="history-list">
+                <!-- History items will be populated here -->
+            </div>
         </div>
     </div>
 
